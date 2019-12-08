@@ -19,7 +19,9 @@ const routes: Routes = [
   { path: 'register', loadChildren: './register/register.module#RegisterPageModule' },
   { path: 'sobre', loadChildren: './sobre/sobre.module#SobrePageModule' },
   { path: 'eventos', loadChildren: './eventos/eventos.module#EventosPageModule' },
-  { path: 'modal-evento', loadChildren: './modal-evento/modal-evento.module#ModalEventoPageModule' }
+  { path: 'modal-evento', loadChildren: './modal-evento/modal-evento.module#ModalEventoPageModule' },
+  { path: 'details/:id', loadChildren: './details/details.module#DetailsPageModule' },
+  { path: 'details', loadChildren: './details/details.module#DetailsPageModule' }
 ];
 
 @NgModule({

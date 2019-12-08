@@ -1,6 +1,6 @@
-import { ModalEventoPage } from './../modal-evento/modal-evento.page';
+import { EventosService } from './../service/eventos.service';
+import { TaskI } from './../models/task.interface';
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-eventos',
@@ -8,18 +8,17 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./eventos.page.scss'],
 })
 export class EventosPage implements OnInit {
+  todos: TaskI[];
 
-  constructor(
-    private modalCtrl:ModalController
-  ) { }
-
-  async showModal(){
-    const modal = await this.modalCtrl.create({
-      component: ModalEventoPage
-    });
-    modal.present();
+  constructor(private todoService: EventosService){}
+  
+  ngOnInit(){
+    this.todoService.getTodos().subscribe((todos) =>{
+      console.log('Todoss', todos);
+      this.todos = todos;
+    })
   }
-  ngOnInit() {
+  onRemove(idTask:string){
+    this.todoService.removeTodo(idTask);
   }
-
 }
