@@ -10,10 +10,10 @@ export const environment = {
     databaseURL: "https://eventos-ac0d2.firebaseio.com",
     projectId: "eventos-ac0d2",
     storageBucket: "eventos-ac0d2.appspot.com",
-    messagingSenderId: "708014056395",
-    appId: "1:708014056395:web:3bde13e65afecf61738c4e",
-    measurementId: "G-RZBFP0N3T8"
+    messagingSenderId: "708014056395"
+    
   }
+  
 };
 
 /*

@@ -1,4 +1,3 @@
-import { ModalEventoPage } from './../modal-evento/modal-evento.page';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -22,7 +21,7 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [EventosPage,ModalEventoPage],
-  entryComponents: [ModalEventoPage]
+  declarations: [EventosPage],
+  
 })
 export class EventosPageModule {}

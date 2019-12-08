@@ -12,12 +12,21 @@ export class HomePage {
 
   todos: TaskI[];
 
-  constructor(private todoService: EventosService){}
+  constructor(private todoService: EventosService){
+    if (this.todos) this.loadEventos();
+  }
   
   ngOnInit(){
     this.todoService.getTodos().subscribe((todos) =>{
-      console.log('Todoss', todos);
+      console.log('Todos', todos);
       this.todos = todos;
-    })
+    });
+  }
+  
+  loadEventos(){
+    this.todoService.getTodos().subscribe((todos) =>{
+      console.log('Todos', todos);
+      this.todos = todos;
+    });
   }
 }
