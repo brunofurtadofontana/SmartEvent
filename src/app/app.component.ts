@@ -1,10 +1,9 @@
+import { Router, RouterEvent } from '@angular/router';
 import { Component } from '@angular/core';
-
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { CacheService } from "ionic-cache";
-
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -34,15 +33,19 @@ export class AppComponent {
       icon: 'information-circle'
     },
   ];
-
+  selectedPath = null;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    cache: CacheService
+    cache: CacheService,
+    private router: Router
   ) {
     this.initializeApp();
     cache.setDefaultTTL(30); //set default cache TTL for 1 hour
+    this.router.events.subscribe((event: RouterEvent)=>{
+      this.selectedPath = event.url;
+    })
   }
 
   initializeApp() {

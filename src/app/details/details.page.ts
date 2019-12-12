@@ -51,12 +51,12 @@ export class DetailsPage implements OnInit {
     if (this.todoId) {
       this.todoService.updateTodo(this.todo, this.todoId).then(() => {
         loading.dismiss();
-        this.nav.navigateForward('/');
+        this.nav.navigateForward('/eventos');
       });
     } else {
       this.todoService.addTodo(this.todo).then(() => {
         loading.dismiss();
-        this.nav.navigateForward('/');
+        this.nav.navigateForward('/eventos');
       });
     }
   }

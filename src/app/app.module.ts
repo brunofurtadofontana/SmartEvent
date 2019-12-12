@@ -22,7 +22,11 @@ import { CacheModule } from "ionic-cache";
   entryComponents: [],
   imports: [ 
     BrowserModule,
-    IonicModule.forRoot(),
+    IonicModule.forRoot({
+      backButtonText: '',
+      mode: 'ios',
+      backButtonIcon: 'ios-arrow-back'
+    }),
     CacheModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),

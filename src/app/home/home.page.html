@@ -10,7 +10,15 @@
 </ion-header>
 
 <ion-content>
-    <div text-center>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content
+          pullingIcon="arrow-dropdown"
+          pullingText="Pull to refresh"
+          refreshingSpinner="circles"
+          refreshingText="Refreshing...">
+        </ion-refresher-content>
+      </ion-refresher>
+    <div class="ion-text-center">
         <img src="assets/icon/event.png"/>
         <h3></h3>
     </div>
@@ -18,11 +26,11 @@
     <!-- Animated Searchbar -->
     <ion-searchbar animated></ion-searchbar>
 
-    <ion-card *ngFor="let todo of todos" class="welcome-card">
-      <img src="{{todo.url}}" alt="" />
+    <ion-card *ngFor="let todo of todos" class="welcome-card" (click)="goEventos()">
+      <img src="{{todo?.url}}" alt="" />
       <ion-card-header>
         
-        <ion-card-title>{{todo.titulo}}</ion-card-title>
+        <ion-card-title>{{todo?.titulo}}</ion-card-title>
         <ion-card-subtitle></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
@@ -32,6 +40,5 @@
       </ion-card-content>
       
     </ion-card>
-    
     
 </ion-content>

@@ -11,6 +11,10 @@ const routes: Routes = [
   {
     path: '',
     component: DetailsPage
+  },
+  {
+    path: ':id',
+    component: DetailsPage
   }
 ];
 
@@ -23,4 +27,4 @@ const routes: Routes = [
   ],
   declarations: [DetailsPage]
 })
-export class DetailsPageModule {}
+export class DetailsPageModule { }

@@ -29,10 +29,11 @@ export class EventosService {
   getTodos(){
     return this.todos;
   }
- 
+   
   getTodo(id: string){
     return this.todosCollection.doc<TaskI>(id).valueChanges();
   }
+  
 
   updateTodo(todo: TaskI, id: string){
     return this.todosCollection.doc<TaskI>(id).update(todo);

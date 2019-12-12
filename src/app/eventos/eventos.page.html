@@ -1,29 +1,31 @@
 <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-menu-button></ion-menu-button>
+      <ion-buttons slot="start">        
+          <ion-back-button (click)="voltarHome()"></ion-back-button>      
       </ion-buttons>
       <ion-title>
         Meus eventos
       </ion-title>
     </ion-toolbar>
   </ion-header>
-   <ion-content>
+  
+  <ion-content>
+      <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+          <ion-refresher-content
+            pullingIcon="arrow-dropdown"
+            pullingText="Pull to refresh"
+            refreshingSpinner="circles"
+            refreshingText="Refreshing...">
+          </ion-refresher-content>
+        </ion-refresher>
     <ion-list>
-      <ng-container *ngIf="!todos || todos.length == 0">
-        <div *ngFor="let n of [0,1,2]" padding>
-          <ion-skeleton-text></ion-skeleton-text>
-          <p>
-            <ion-skeleton-text class="text-skeleton"></ion-skeleton-text>
-          </p>
-        </div>
-      </ng-container>
+
       <ion-item-sliding *ngFor="let todo of todos">
         <ion-item lines="inset" button [routerLink]="['/details', todo.id]">
           <ion-label>
             {{ todo.titulo }}
           </ion-label>
-          <ion-note slot="end" color="primary">{{ todo.descricao }}</ion-note>
+          <ion-note slot="end" color="primary">{{ todo.data }}</ion-note>
         </ion-item>
    
         <ion-item-options side="end">
